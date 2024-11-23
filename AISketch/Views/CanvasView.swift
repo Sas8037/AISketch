@@ -9,7 +9,28 @@ import SwiftUI
 
 struct CanvasView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 0) {
+            // Toolbar
+            HStack {
+                // Clear Button
+                Button (action: {
+                    // Clear Button
+                }) {
+                    Text("Clear")
+                        .padding()
+                }
+                .buttonStyle(.plain)
+                .background(Color.red)
+                .cornerRadius(8)
+            }
+            .padding()
+            
+            // Canvas
+            ZStack {
+                // Canvas Background
+                Color.white
+            }
+        }
     }
 }
 
