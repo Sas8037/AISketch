@@ -59,20 +59,19 @@ struct CanvasView: View {
                     )
                 
                 // Draw Points
-                    ForEach(points) { point in
-                    Circle()
-                        .fill(Color.blue)
-                        .frame(width: 10, height: 10)
-                        .position(
-                            x: point.x,
-                            y: point.y
-                        )
+                ForEach(points) { point in
+                Circle()
+                    .fill(Color.blue)
+                    .frame(width: 10, height: 10)
+                    .position(
+                        x: point.x,
+                        y: point.y
+                    )
                 }
                 
                 // Mouse Tracking Overlay
                 MouseTrackingView(
-                    mousePosition: $mousePosition,
-                    isAddingPointsEnabled: $isAddingPointsEnabled
+                    mousePosition: $mousePosition
                 )
                 .allowsHitTesting(false)
                 

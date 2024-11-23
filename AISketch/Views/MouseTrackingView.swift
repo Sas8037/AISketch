@@ -18,14 +18,14 @@ struct MouseTrackingView: NSViewRepresentable {
     }
 
     func updateNSView(_ nsView: NSView, context: Context) {
-        // No update needed
+        // No dynamic updates required
     }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
     
-    class Coordinator: NSObject {
+    class Coordinator: NSObject, TrackingNSViewDelegate {
         var parent: MouseTrackingView
         
         init(_ parent: MouseTrackingView) {

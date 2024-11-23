@@ -14,6 +14,7 @@
 		6E24CE6C2CF2004500A309AC /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E24CE6B2CF2004500A309AC /* CanvasView.swift */; };
 		6E24CE6F2CF202EA00A309AC /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E24CE6E2CF202EA00A309AC /* Point.swift */; };
 		6E24CE712CF20E5A00A309AC /* MouseTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E24CE702CF20E5A00A309AC /* MouseTrackingView.swift */; };
+		6E24CE732CF2193300A309AC /* TrackingNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E24CE722CF2193300A309AC /* TrackingNSView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		6E24CE6B2CF2004500A309AC /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		6E24CE6E2CF202EA00A309AC /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		6E24CE702CF20E5A00A309AC /* MouseTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseTrackingView.swift; sourceTree = "<group>"; };
+		6E24CE722CF2193300A309AC /* TrackingNSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingNSView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				6E24CE5D2CF1FFF700A309AC /* ContentView.swift */,
 				6E24CE6B2CF2004500A309AC /* CanvasView.swift */,
 				6E24CE702CF20E5A00A309AC /* MouseTrackingView.swift */,
+				6E24CE722CF2193300A309AC /* TrackingNSView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E24CE732CF2193300A309AC /* TrackingNSView.swift in Sources */,
 				6E24CE6F2CF202EA00A309AC /* Point.swift in Sources */,
 				6E24CE712CF20E5A00A309AC /* MouseTrackingView.swift in Sources */,
 				6E24CE5E2CF1FFF700A309AC /* ContentView.swift in Sources */,
