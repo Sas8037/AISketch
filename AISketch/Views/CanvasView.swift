@@ -10,6 +10,7 @@ import SwiftUI
 struct CanvasView: View {
     @State private var points: [Point] = []
     @State private var isAddingPointsEnabled: Bool = false
+    @State private var mousePosition: CGPoint = .zero
     
     var body: some View {
         VStack(spacing: 0) {
@@ -48,7 +49,10 @@ struct CanvasView: View {
                             .onEnded { value in
                                 if isAddingPointsEnabled {
                                     let location = value.location
-                                    let newPoint = Point(x: location.x, y: location.y)
+                                    let newPoint = Point(
+                                        x: location.x,
+                                        y: location.y
+                                    )
                                     points.append(newPoint)
                                 }
                             }
@@ -59,16 +63,28 @@ struct CanvasView: View {
                     Circle()
                         .fill(Color.blue)
                         .frame(width: 10, height: 10)
-                        .position(x: point.x, y: point.y)
+                        .position(
+                            x: point.x,
+                            y: point.y
+                        )
                 }
                 
                 // Mouse Tracking Overlay
+                MouseTrackingView(
+                    mousePosition: $mousePosition,
+                    isAddingPointsEnabled: $isAddingPointsEnabled
+                )
+                .allowsHitTesting(false)
                 
                 // Circle Following Mouse Position when Adding Points is Enabled
                 if isAddingPointsEnabled {
                     Circle()
                         .stroke(lineWidth: 1)
                         .frame(width: 15, height: 15)
+                        .position(
+                            x: mousePosition.x,
+                            y: mousePosition.y
+                        )
                         .foregroundColor(Color.red)
                 }
             }
