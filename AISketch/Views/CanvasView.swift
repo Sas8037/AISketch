@@ -11,6 +11,7 @@ struct CanvasView: View {
     @State private var points: [Point] = []
     @State private var isAddingPointsEnabled: Bool = false
     @State private var mousePosition: CGPoint = .zero
+    @State private var isMouseOverCanvas: Bool = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -25,6 +26,7 @@ struct CanvasView: View {
                 }
                 .buttonStyle(.plain)
                 .background(isAddingPointsEnabled ? Color.red : Color.green)
+                .foregroundColor(.white)
                 .cornerRadius(8)
                 
                 // Clear Button
@@ -36,6 +38,7 @@ struct CanvasView: View {
                 }
                 .buttonStyle(.plain)
                 .background(Color.red)
+                .foregroundColor(.white)
                 .cornerRadius(8)
             }
             .padding()
@@ -71,12 +74,14 @@ struct CanvasView: View {
                 
                 // Mouse Tracking Overlay
                 MouseTrackingView(
-                    mousePosition: $mousePosition
+                    mousePosition: $mousePosition,
+                    isAddingPointsEnabled: $isAddingPointsEnabled,
+                    isMouseOverCanvas: $isMouseOverCanvas
                 )
                 .allowsHitTesting(false)
                 
                 // Circle Following Mouse Position when Adding Points is Enabled
-                if isAddingPointsEnabled {
+                if isAddingPointsEnabled && isMouseOverCanvas {
                     Circle()
                         .stroke(lineWidth: 1)
                         .frame(width: 15, height: 15)

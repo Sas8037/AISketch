@@ -10,33 +10,51 @@ import AppKit
 
 struct MouseTrackingView: NSViewRepresentable {
     @Binding var mousePosition: CGPoint
+    @Binding var isAddingPointsEnabled: Bool
+    @Binding var isMouseOverCanvas: Bool // New Binding
 
-    func makeNSView(context: Context) -> NSView {
+    typealias NSViewType = TrackingNSView
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    func makeNSView(context: Context) -> TrackingNSView {
         let view = TrackingNSView()
         view.delegate = context.coordinator
         return view
     }
 
-    func updateNSView(_ nsView: NSView, context: Context) {
-        // No dynamic updates required
+    func updateNSView(_ nsView: TrackingNSView, context: Context) {
+        // Pass the isAddingPointsEnabled state to the NSView
+        nsView.isAddingPointsEnabled = isAddingPointsEnabled
     }
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
+
+    // Coordinator to handle events from NSView
     class Coordinator: NSObject, TrackingNSViewDelegate {
         var parent: MouseTrackingView
-        
+
         init(_ parent: MouseTrackingView) {
             self.parent = parent
         }
+
         func mouseDidMove(to point: CGPoint) {
+            // Update the binding on the main thread
             DispatchQueue.main.async {
                 self.parent.mousePosition = point
             }
         }
+
+        func mouseDidEnter() {
+            DispatchQueue.main.async {
+                self.parent.isMouseOverCanvas = true
+            }
+        }
+
+        func mouseDidExit() {
+            DispatchQueue.main.async {
+                self.parent.isMouseOverCanvas = false
+            }
+        }
     }
 }
-
-
