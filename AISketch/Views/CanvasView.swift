@@ -61,8 +61,19 @@ struct CanvasView: View {
                         .frame(width: 10, height: 10)
                         .position(x: point.x, y: point.y)
                 }
+                
+                // Mouse Tracking Overlay
+                
+                // Circle Following Mouse Position when Adding Points is Enabled
+                if isAddingPointsEnabled {
+                    Circle()
+                        .stroke(lineWidth: 1)
+                        .frame(width: 15, height: 15)
+                        .foregroundColor(Color.red)
+                }
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
