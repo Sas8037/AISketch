@@ -54,6 +54,7 @@
 		6E24CE5A2CF1FFF700A309AC /* AISketch */ = {
 			isa = PBXGroup;
 			children = (
+				6E24CE6D2CF2029300A309AC /* Models */,
 				6E24CE6A2CF2001100A309AC /* Views */,
 				6E24CE5B2CF1FFF700A309AC /* AISketchApp.swift */,
 				6E24CE5F2CF1FFFC00A309AC /* Assets.xcassets */,
@@ -78,6 +79,13 @@
 				6E24CE6B2CF2004500A309AC /* CanvasView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6E24CE6D2CF2029300A309AC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
