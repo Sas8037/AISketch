@@ -92,6 +92,14 @@ struct CanvasView: View {
                         .foregroundColor(Color.red)
                 }
             }
+            
+            HStack {
+                Spacer()
+                
+                Text("Mouse Position: \(Int(mousePosition.x)), \(Int(mousePosition.y))")
+                
+                Spacer()
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
